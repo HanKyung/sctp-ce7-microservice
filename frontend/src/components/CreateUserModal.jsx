@@ -67,7 +67,7 @@ const CreateUserModal = () => {
             <Button onClick={onClose}>Cancel</Button>
 
         </ModalFooter>
-
+ 
     </ModalContent>
 
 
