@@ -1,2 +1,28 @@
 # don't push venv to github
 ce7-capstone-py-env
+venv/
+venv*/
+.python
+bin/
+include/
+lib/
+lib64/
+pip-selfcheck.json
+
+.vscode/
+.idea/
+*.iml
+*.pyc
+
+# environment variables
+.env
+
+# database
+friends.db
+
+# compiled python files
+*.pyc
+
+# dependency directories
+node_modules/
+/dist/
