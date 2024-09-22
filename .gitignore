@@ -26,3 +26,4 @@ friends.db
 # dependency directories
 node_modules/
 /dist/
+instance/

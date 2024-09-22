@@ -45,7 +45,7 @@ const UserGrid = ({users, setUsers}) => {
 
         {/* static data {USERS.map((user) */}
         {users.map((user) => (
-            <UserCard key = {user.id} user={user} />
+            <UserCard key = {user.id} user={user} setUsers={setUsers}/>
         ))}
 
     </Grid>

@@ -4,7 +4,7 @@ import {LuSun} from "react-icons/lu";
 import React from 'react'
 import CreateUserModal from './CreateUserModal';
 
-const Navbar = ({setUsers}) => {
+const Navbar = ({ setUsers }) => {
     const { colorMode, toggleColorMode } = useColorMode()  
     return (
         <Container maxW={"900px"}>
