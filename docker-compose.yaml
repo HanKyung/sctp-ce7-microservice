@@ -1,0 +1,20 @@
+services:
+  flaskservice:
+    build: backend
+    # not required since we have a nginx reverse proxy now
+    # ports:
+    #   - "5000:5000"
+    networks:
+      - mynetwork
+  
+  web:
+    build: nginx
+    ports:
+    - "80:80"
+    networks:
+      - mynetwork
+
+  
+networks:
+  mynetwork:
+  
