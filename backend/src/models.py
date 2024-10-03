@@ -3,6 +3,7 @@
 from app import db
 
 class Friend(db.Model):
+    # __tablename__ = 'friends'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(100), nullable=False)
     role = db.Column(db.String(50), nullable=False)

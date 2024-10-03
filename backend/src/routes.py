@@ -92,8 +92,5 @@ def update_friend(id):
         db.session.rollback
         return jsonify({"error":str(e)}), 500
 
-test_response = [{'id': 1, 'name': 'Best Friend'}]
-@app.route("/test")
-def send_test_response():
-    return jsonify(test_response)
+
 
