@@ -7,6 +7,16 @@ services:
     networks:
       - mynetwork
   
+  reactui:
+    build: frontend
+    ports:
+      - "3000:3000" # Expose port react app runs on
+    networks:
+      - mynetwork
+    environment:
+      - NODE_ENV=production # enviroment to production
+
+  
   web:
     build: nginx
     ports:
