@@ -1,0 +1,35 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: flask-react-ingress
+  labels:
+    name: app1-nginx
+  annotations:
+    # Load balancer name
+    alb.ingress.kubernetes.io/load-balancer-name: app1ingress
+    # Ingress core setting
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    # health check setting
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/healthcheck-path: /app1/index.html
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
+    alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
+    alb.ingress.kubernetes.io/success-codes: '200'
+    alb.ingress.kubernetes.io/healthy-threshold-count: '200'
+    alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
+
+    
+spec:
+  ingressClassName: cillium
+  rules:
+  - host: myapp.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: reactui
+            port:
+              number: 3000
+

@@ -2,10 +2,12 @@ services:
   flaskservice:
     build: backend
     # not required since we have a nginx reverse proxy now
-    # ports:
-    #   - "5000:5000"
+    ports:
+      - "5000:5000"
     networks:
       - mynetwork
+    environment:
+          - DATABASE_URL="mysql+pymysql://username:password@your-rds-endpoint:3306/your-database-name"
   
   reactui:
     build: frontend
@@ -24,13 +26,16 @@ services:
     networks:
       - mynetwork
   
-  db:
-    image: mysql
-    command: "--init-file /data/application/init.sql --default-authentication-plugin=mysql_native_password"
-    volumes:
-      - "./db/init.sql:/data/application/init.sql"
-    environment:
-      - MYSQL_ROOT_PASSWORD=password
+
+  # only use db if deploying locally 
+
+  # db:
+  #   image: mysql
+  #   command: "--init-file /data/application/init.sql --default-authentication-plugin=mysql_native_password"
+  #   volumes:
+  #     - "./db/init.sql:/data/application/init.sql"
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=password
 
 networks:
   mynetwork:

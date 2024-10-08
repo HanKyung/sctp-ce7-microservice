@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flaskservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flaskservice
+  template:
+    metadata:
+      labels:
+        app: flaskservice
+    spec:
+      containers:
+      - name: flaskservice
+        image: flaskservice
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DATABASE_URL
+          value: "mysql+pymysql://dbadmin:dbpassword11@rds-mysql:3306/friends"

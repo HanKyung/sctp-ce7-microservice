@@ -27,3 +27,6 @@ friends.db
 node_modules/
 /dist/
 instance/
+
+# secrets
+*myapp-config*
