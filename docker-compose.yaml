@@ -6,8 +6,7 @@ services:
       - "5000:5000"
     networks:
       - mynetwork
-    environment:
-          - DATABASE_URL="mysql+pymysql://username:password@your-rds-endpoint:3306/your-database-name"
+    
   
   reactui:
     build: frontend
