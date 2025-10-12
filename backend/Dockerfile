@@ -1,5 +1,5 @@
 # set base image (host OS)
-FROM python:3.12.0-alpine
+FROM python:3.14.0-alpine
 
 # set the working direction in the container
 WORKDIR /usr/src/app
